@@ -1,24 +1,73 @@
-# README
+ # Back4app Containers - Ruby on Rails Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ This is a simple Ruby on Rails application that has been configured to run on Back4app Containers. It serves a welcome page when accessed via a web browser.
 
-Things you may want to cover:
+ ## Getting Started
 
-* Ruby version
+ These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-* System dependencies
+ ### Prerequisites
 
-* Configuration
+ - You should have [Ruby](https://www.ruby-lang.org/) and [Rails](https://rubyonrails.org/) installed on your local machine.
+ - Install [Docker](https://www.docker.com/products/docker-desktop) if you want to build and run the Docker container locally.
 
-* Database creation
+ ### Installing
 
-* Database initialization
+ 1. Clone this repository:
 
-* How to run the test suite
+ ```sh
+ git clone https://github.com/templates-back4app/containers-ruby-rails-app.git
+ cd containers-ruby-rails-app
+ ```
 
-* Services (job queues, cache servers, search engines, etc.)
+ 2. Install the project dependencies:
 
-* Deployment instructions
+ ```sh
+ bundle install
+ ```
 
-* ...
+ 3. Start the development server:
+
+ ```sh
+ rails server
+ ```
+
+ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+ ### Building a Docker Image
+
+ To build a Docker image of the application, run the following command:
+
+ ```sh
+ docker build -t containers-ruby-rails-app .
+ ```
+
+ ### Running the Docker Container
+
+ To run the Docker container, use the following command:
+
+ ```sh
+ docker run -p 8080:3000 containers-ruby-rails-app
+ ```
+
+ Now, the app is running at [http://localhost:8080](http://localhost:8080)
+
+ ## Deployment
+
+ The project can be deployed on Back4app Containers. Refer to the [Back4app Documentation](https://www.back4app.com/docs-containers) for more information.
+
+ ## Built With
+
+ - [Ruby on Rails](https://rubyonrails.org/)
+ - [Docker](https://www.docker.com/)
+
+
+ ## Authors
+
+ - **Back4app** - Initial work - [Back4app](https://github.com/back4app)
+
+ See also the list of [contributors](https://github.com/templates-back4app/containers-ruby-rails-app/contributors) who participated in this project.
+
+ ## License
+
+ This project is licensed under the MIT License
