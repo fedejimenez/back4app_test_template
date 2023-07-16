@@ -90,4 +90,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Define host
+  Rails.application.routes.default_url_options[:host] = 'back4apptest-fedeejimenez.b4a.run'
 end
