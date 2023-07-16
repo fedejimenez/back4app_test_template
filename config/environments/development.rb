@@ -12,7 +12,8 @@ Rails.application.configure do
   config.eager_load = false
 
   # Allow hosts
-  config.hosts << "back4apptest-fedeejimenez.b4a.run"
+  config.hosts << "http://back4apptest-fedeejimenez.b4a.run"
+  config.hosts << "https://back4apptest-fedeejimenez.b4a.run"
   config.hosts << "node37a.containers.back4app.com"
 
   # Show full error reports.

@@ -15,8 +15,21 @@ WORKDIR /back4app_test_template
 COPY Gemfile /back4app_test_template/Gemfile
 COPY Gemfile.lock /back4app_test_template/Gemfile.lock
 
+# Set production environment
+ENV RAIlS_LOG_STDOUT="1" \
+  RAILS_SERVE_STATIC_FILES="true" \
+  RAILS_ENV="production" \
+  BUNDLE_WITHOUT="development"
+
 # Install gems
 RUN bundle install
+
+# Precompile assets
+RUN rails assets:precompile
+
+# Create db and run migrations
+RUN rails db:create
+RUN rails db:migrate
 
 # Copy the rest of the application into the image
 COPY . /back4app_test_template
@@ -27,7 +40,7 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 
 # Expose the port that the Rails server will run on
-EXPOSE 3000
+EXPOSE 80
 
 # Define the command to start the server
 CMD ["rails", "server", "-b", "0.0.0.0"]

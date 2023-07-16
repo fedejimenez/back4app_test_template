@@ -24,6 +24,8 @@ services:
     volumes:
       - .:/back4app_test_template
       - bundler_gems:/usr/local/bundle/
+    environment:
+      - RAILS_ENV=development
     ports:
       - "3000:3000"
     command: >
