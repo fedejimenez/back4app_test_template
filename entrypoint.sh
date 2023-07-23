@@ -3,13 +3,7 @@ set -e
 
 # If the database exists, migrate. Otherwise setup (create and migrate)
 echo "Running database migrations..."
-if bundle exec rails db:exists; then
-  bundle exec rails db:migrate
-else
-  bundle exec rails db:create
-  bundle exec rails db:migrate
-  bundle exec rails db:seed
-fi
+(rake db:migrate:status 2>/dev/null || rake db:setup) && rake db:migrate
 echo "Finished running database migrations."
 
 # Remove a potentially pre-existing server.pid for Rails.
